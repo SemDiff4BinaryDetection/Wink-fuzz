@@ -1,6 +1,10 @@
 # Wink-fuzz
 This is a fuzzing tool called WinkFuzz for Windows Kernel.
 
+## Preparations
+Firstly, since there are too many structures used in Windows syscalls, one should define all the structures beforehand. Run read_json_define_class.py to parse the Types.json and define all the structures within it. Types.json is an output file describing 
+each Windows syscalls along with their argument field. This is inferred by NtFuzz by analyzing multiple system binaries.
+
 ## Usage
 Firstly, one should execute and trace the seed applocation. In the log folder, we uploaded the traced log in our experiment.
 
