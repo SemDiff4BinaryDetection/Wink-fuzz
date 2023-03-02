@@ -23,7 +23,7 @@ Thirdly, synthesis_trace.py generates a model python script that recovers the sy
 Fourthly, insert_syscall_sequence.py learns from the trace about the syscalls' dependencies and use the dependencies to insert new syscalls.
 
 Finally, mutate_args_template.py adds the mutation functionality into the just inserted new script file. It uses the APIs provided in the
-mutate_lib.py, which mutates non-pointers on its own, and ask NtFuzz's fuzzing module (a driver) to mutate pointers. Note that mutate_lib.py need to be placed under Ntfuzz's Hooker/Debug folder as it uses APIs provided in hooker32.py.
+mutate_lib.py, which mutates non-pointers on its own, and ask NtFuzz's fuzzing module (a driver) to mutate pointers. Note that mutate_lib.py need to be placed under Ntfuzz's Hooker/launcher folder as it uses APIs provided in hooker32.py.
 
 Now we have a new syscall script, one can iteratively execute it for fuzzing. To automatically execute the script file in a infinite loop, run 
 start_vm_template.py. This py file sets a time limit for each loop to ignore any errors or hangs.
