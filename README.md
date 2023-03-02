@@ -3,8 +3,10 @@ This is a fuzzing tool called WinkFuzz for Windows Kernel.
 
 ## Preparations
 Firstly, since there are too many structures used in Windows syscalls, one should define all the structures beforehand. Run read_json_define_class.py to parse the Types.json and define all the structures within it. Types.json is an output file describing 
-each Windows syscalls along with their argument field. This is inferred by NtFuzz by analyzing multiple system binaries. We uploaded 
-a sample Types.json and an example of the output structs_define.py for simplicity.
+each Windows syscalls along with their argument field. This is inferred by NtFuzz by analyzing multiple system binaries. 
+
+We uploaded a sample Types.json and an example of the output structs_define.py for simplicity. Note that the generated scripts in the following 
+section need to be put into the same folder as structs_define.py
 
 ## Usage
 The methodology of WinkFuzz is: 1. trace the invoked syscalls during running a seed application, 2. analyse syscalls dependencies from the trace, 3. recover a model syscall script that preserves all the syscalls in the trace, 4. use the learnt dependencies from the trace and insert
