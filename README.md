@@ -7,6 +7,10 @@ each Windows syscalls along with their argument field. This is inferred by NtFuz
 a sample Types.json and an example of the output structs_define.py for simplicity.
 
 ## Usage
+The methodology of WinkFuzz is: 1. trace the invoked syscalls during running a seed application, 2. analyse syscalls dependencies from the trace, 3. recover a model syscall script that preserves all the syscalls in the trace, 4. use the learnt dependencies from the trace and insert
+new syscalls in the model syscall script, 5. fuzzing.
+
+
 Firstly, one should execute and trace the seed applocation. In the log folder, we uploaded the traced log in our experiment.
 
 Secondly, trace_dependence.py analyzes the dependencies among the logged syscalls. It would output a .txt file recording the dependencies
